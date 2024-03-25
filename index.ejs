@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Webpage</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <h1>Welcome to Simple login Webpage</h1>
+        </header>
+
+        <div class="selection-container">
+            <label for="action-select">Select an Action:</label>
+            <select id="action-select" onchange="toggleForm()">
+                <option value="signup">Sign Up</option>
+                <option value="login">Login</option>
+            </select>
+        </div>
+
+        <!-- Sign-up Form -->
+        <section id="signup">
+            <h2>Sign Up</h2>
+            <form action="/signup" method="post" class="form-container">
+                <div class="form-group">
+                    <label for="signup-username">Username:</label>
+                    <input type="text" id="signup-username" name="username" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="signup-password">Password:</label>
+                    <input type="password" id="signup-password" name="password" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn">Sign Up</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Login Form -->
+        <section id="login" style="display: none;">
+            <h2>Login</h2>
+            <form action="/login" method="post" class="form-container">
+                <div class="form-group">
+                    <label for="login-username">Username:</label>
+                    <input type="text" id="login-username" name="username" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password:</label>
+                    <input type="password" id="login-password" name="password" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn">Login</button>
+                </div>
+            </form>
+        </section>
+
+        <footer>
+            <p>&copy; 2024 Simple Webpage</p>
+        </footer>
+
+    </div>
+
+    <script>
+        function toggleForm() {
+            const actionSelect = document.getElementById("action-select");
+            const signupSection = document.getElementById("signup");
+            const loginSection = document.getElementById("login");
+
+            if (actionSelect.value === "signup") {
+                signupSection.style.display = "block";
+                loginSection.style.display = "none";
+            } else if (actionSelect.value === "login") {
+                signupSection.style.display = "none";
+                loginSection.style.display = "block";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
